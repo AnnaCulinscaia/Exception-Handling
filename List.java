@@ -1,6 +1,4 @@
-
-// A complete working Java program to demonstrate all
-
+import java.util.*;
 public class List {
     Node head; // head of list
 
@@ -50,63 +48,47 @@ public class List {
         }
     }
 
- /*  public void check(Node node,String one, String two){
-        Node last = null;
-        while (node != null) {
-            if ((node.data == one) && (node.next.data == two)) //|| ( ((node.data == two)&&(node.next.data== one)) ))
-                System.out.println( " are Siblings");
-             if ((node.data == one) && (node.prev.data == two))
-                System.out.println( " are Siblings");
-             if ((node.data == two)&&(node.next.data == one))
-                System.out.println ("are Siblings");
-             if ((node.data == two)&& (node.prev.data == one))
-                System.out.println(" are Siblings");
-
-            last = node;
-            node = node.next;
-        }
-
-    }
-
-    public static void main(String[] args) {
-
-            List dll = new List();
-            dll.append("Plant");
-            dll.append("Grasshopper");
-            dll.append("Blue Bird");
-            dll.append("Snake");
-            dll.append("Owl");
-            System.out.println("Created DLL is: ");
-            dll.printlist(dll.head);
-            System.out.println(" If two objects are siblings, you will see that, if not, you will see nothing");
-            dll.check(dll.head,"Snake", "Owl");
-        }
-    }
-*/
-// This code is contributed by Sumit Ghosh
-
-public String areSiblings(String element1, String element2) {
-
-        System.out.println("Checking if "+element1+" and "+element2+" are siblings");
+    public void areSiblings(Node element1, Node element2) {
+        System.out.println("Checking if " + element1 + " and " + element2 + " are siblings");
         Node tmp = head;
         while (tmp != null) {
-            if (((tmp == element1)&&(tmp.next == element2))||(((tmp == element2)&&(tmp.next == element1))))
+            if (((tmp == element1) && (tmp.next == element2)) || (((tmp == element2) && (tmp.next == element1))))
                 System.out.println("These elements are siblings");
-                else
-                    System.out.println("These elements are not siblings");
-            };
-            tmp = tmp.next;
+            else
+                System.out.println("These elements are not siblings");
+        }
+        ;
+        tmp = tmp.next;
+    }
+
+    public static int checkValidNumber() {
+        try {
+            return input.nextInt();
+        } catch (InputMismatchException e) {
+            input.next();
+            System.out.print("That  is not a whole number");
+            return 0;
         }
     }
-public class List {
-        public static void main (String[] args){
-            DoublyLinkedListImpl<String> dll = new DoublyLinkedListImpl<String>();
-            dll.addLast("Plant");
-            dll.addLast("Grasshopper");
-            dll.addLast("Blue Bird");
-            dll.addLast("Snake");
-            dll.addLast("Owl");
+
+    static Scanner input = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        //DoublyLinkedListImpl<String> dll = new DoublyLinkedListImpl<String>();
+        System.out.println("How many levels are in your food chain?");
+        int number = checkValidNumber();
+        if (number != 0) {
+            System.out.println("Input " + number + "levels of food chain");
         }
+        else {
+            System.out.println("There does not exist a chain which consisits of 0 levels");
+        }
+        List dll = new List();
+        dll.append("Plant");
+        dll.append("Grasshopper");
+        dll.append("Blue Bird");
+        dll.append("Snake");
+        dll.append("Owl");
+
+    }
 }
-
-
